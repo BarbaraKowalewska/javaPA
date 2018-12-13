@@ -10,6 +10,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -17,26 +18,24 @@ import static org.junit.Assert.assertFalse;
 public class tests {
 
 
-
-
     @Test
     public void managerCanAddMediaItem() {
         //when
 
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100 );
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
         Mediatheque mediatheque = new Mediatheque();
         Manager manager = new Manager();
 
-        assertTrue(manager.addMediaItem(item,mediatheque));
+        assertTrue(manager.addMediaItem(item, mediatheque));
         assertEquals(item, mediatheque.getAllItems().get(0));
-        assertEquals(mediatheque.getAllItems().size() ,1);
+        assertEquals(mediatheque.getAllItems().size(), 1);
     }
 
 
     @Test
     public void managerCanDeleteMediaItem() {
 
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100 );
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
         Mediatheque mediatheque = new Mediatheque();
         Manager manager = new Manager();
 
@@ -75,32 +74,32 @@ public class tests {
 
 
     }
+
     @Ignore
     @Test
-    public void userCanRentMediaItem(){
+    public void userCanRentMediaItem() {
         Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100 );
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
 
         user.rentMediaItem(item);
-
-
 
 
         Assert.assertTrue(user.getRented().size() == 1);
 
     }
+
     @Ignore
     @Test
     public void userCanReturnMediaItem() {
 
         Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100 );
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
 
         user.getRented().add(item);
         user.giveBackMediaItem(item);
-        assertEquals(user.getRented().size(),0);
+        assertEquals(user.getRented().size(), 0);
 
     }
 
@@ -108,10 +107,11 @@ public class tests {
     public void canUserCheckAvailability() {
         Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100 );
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
 
         assertTrue(user.isMediaItemAvailable(item));
     }
+
     @Ignore
     @Test
     public void canUserReserveMediaItem() {
@@ -124,8 +124,6 @@ public class tests {
 
 
         assertTrue(item.isReserved());
-
-
 
 
     }
@@ -166,10 +164,10 @@ public class tests {
 
 
         mediatheque.getAllItems().add(item);
-        manager.editMediaItem(item, "Little Mermaid", "Bla", new Date(1234,12, 12), 23);
+        manager.editMediaItem(item, "Little Mermaid", "Bla", new Date(1234, 12, 12), 23);
 
 
-        assertEquals(item.getTitle(),"Little Mermaid" );
+        assertEquals(item.getTitle(), "Little Mermaid");
         assertEquals(item.getAuthor(), "Rowling");
         assertEquals(item.getLength(), 23);
 

@@ -21,7 +21,7 @@ public class User {
         return item.isAvailable();
     }
 
-    public void reserveMediaItem(MediaItem item){
+    public void reserveMediaItem(MediaItem item) {
 
     }
 
