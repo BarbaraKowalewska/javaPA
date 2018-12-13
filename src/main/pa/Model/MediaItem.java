@@ -9,14 +9,15 @@ public abstract class MediaItem {
     private boolean isAvailable = true;
     private boolean isReserved = false;
     private int length;
+    private final int ID;
 
-    public MediaItem(String title, String author, Date releaseDate, int length) {
+    public MediaItem(String title, String author, Date releaseDate, int length, int ID) {
         this.title = title;
         this.author = author;
         this.releaseDate = releaseDate;
         this.length = length;
+        this.ID = ID;
     }
-
 
     public boolean isAvailable() {
         return isAvailable;
@@ -36,6 +37,10 @@ public abstract class MediaItem {
 
     public int getLength() {
         return length;
+    }
+
+    public int getID() {
+        return ID;
     }
 }
 

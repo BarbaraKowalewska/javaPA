@@ -22,7 +22,7 @@ public class tests {
     public void managerCanAddMediaItem() {
         //when
 
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
         Mediatheque mediatheque = new Mediatheque();
         Manager manager = new Manager();
 
@@ -35,7 +35,7 @@ public class tests {
     @Test
     public void managerCanDeleteMediaItem() {
 
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
         Mediatheque mediatheque = new Mediatheque();
         Manager manager = new Manager();
 
@@ -78,9 +78,8 @@ public class tests {
     @Ignore
     @Test
     public void userCanRentMediaItem() {
-        Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
 
         user.rentMediaItem(item);
 
@@ -93,9 +92,8 @@ public class tests {
     @Test
     public void userCanReturnMediaItem() {
 
-        Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
 
         user.getRented().add(item);
         user.giveBackMediaItem(item);
@@ -105,9 +103,8 @@ public class tests {
 
     @Test
     public void canUserCheckAvailability() {
-        Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
 
         assertTrue(user.isMediaItemAvailable(item));
     }
@@ -115,9 +112,8 @@ public class tests {
     @Ignore
     @Test
     public void canUserReserveMediaItem() {
-        Mediatheque mediatheque = new Mediatheque();
         User user = new User();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
 
         assert !item.isReserved();
         user.reserveMediaItem(item);
@@ -132,7 +128,7 @@ public class tests {
     @Test
     public void isSearchingForMediaItemWorking() {
         Mediatheque mediatheque = new Mediatheque();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
 
         mediatheque.getAllItems().add(item);
 
@@ -143,7 +139,7 @@ public class tests {
     @Ignore
     @Test
     public void isPreviewWorking() {
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
         User user = new User();
 
         String result = user.previewMediaItem(item);
@@ -159,7 +155,7 @@ public class tests {
     public void ManagerCanEditMediaItem() {
 
         Mediatheque mediatheque = new Mediatheque();
-        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100);
+        MediaItem item = new Book("Harry Potter", "Rowling", new Date(1990, 05, 14), 100, 1);
         Manager manager = new Manager();
 
 
@@ -170,6 +166,7 @@ public class tests {
         assertEquals(item.getTitle(), "Little Mermaid");
         assertEquals(item.getAuthor(), "Rowling");
         assertEquals(item.getLength(), 23);
+        assertEquals(item.getID(), 1);
 
 
     }
